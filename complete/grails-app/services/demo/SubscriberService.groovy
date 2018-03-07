@@ -11,7 +11,7 @@ import com.google.protobuf.ByteString
 import com.google.pubsub.v1.PubsubMessage
 import com.google.pubsub.v1.PushConfig
 import com.google.pubsub.v1.Subscription
-import com.google.pubsub.v1.SubscriptionName
+import com.google.pubsub.v1.ProjectSubscriptionName as SubscriptionName
 import com.google.pubsub.v1.TopicName
 import grails.core.GrailsApplication
 import grails.gorm.transactions.Transactional

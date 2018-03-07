@@ -3,7 +3,7 @@ package demo
 import com.google.cloud.pubsub.v1.SubscriptionAdminClient
 import com.google.pubsub.v1.PushConfig
 import com.google.pubsub.v1.Subscription
-import com.google.pubsub.v1.SubscriptionName
+import com.google.pubsub.v1.ProjectSubscriptionName as SubscriptionName
 import com.google.pubsub.v1.TopicName
 
 class SubscriberController {

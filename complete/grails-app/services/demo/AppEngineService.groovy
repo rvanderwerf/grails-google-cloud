@@ -11,6 +11,7 @@ import org.apache.hadoop.hbase.client.Connection
 import com.google.cloud.bigtable.hbase.BigtableConfiguration
 import org.apache.hadoop.hbase.client.Get
 import org.apache.hadoop.hbase.client.Put
+import org.apache.hadoop.hbase.client.RegionLocator
 import org.apache.hadoop.hbase.client.Result
 import org.apache.hadoop.hbase.client.ResultScanner
 import org.apache.hadoop.hbase.client.Scan
@@ -217,5 +218,47 @@ class AppEngineService {
 
         return result.toString()
     }
+
+    Map list() {
+        StringBuilder result = new StringBuilder()
+        HashMap results = new HashMap()
+
+        // [START connecting_to_bigtable]
+        // Create the Bigtable connection, use try-with-resources to make sure it gets closed
+        Connection connection = getConnection()
+        result.append(create(connection))
+        result.append("<br><br>")
+        try {
+            Table table = connection.getTable(TableName.valueOf(TABLE_NAME))
+            Scan s = new Scan()
+            ResultScanner sr = table.getScanner(s)
+            int i = 0;
+            for (Result r : sr) {
+                i++;
+                for (NavigableMap<byte[], byte[]> nm : r.getNoVersionMap().values()) {
+                    for (byte[] val : nm.values()) {
+                        results.put(new String(r.cells.first().rowArray),new String(val))
+                    }
+                }
+            }
+            return results
+        } catch (Exception e) {
+            log.error("Error reading table:",e)
+        }
+
+    }
+
+    Result getItem(String id) {
+
+        Connection connection = getConnection()
+        Table table = connection.getTable(TableName.valueOf(TABLE_NAME))
+        Scan s = new Scan()
+
+        Get get = new Get(id.getBytes())
+        Result result = table.get(get)
+
+    }
+
+    
 
 }
