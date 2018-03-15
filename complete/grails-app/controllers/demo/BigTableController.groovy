@@ -11,6 +11,8 @@ class BigTableController {
         render(result)
     }
 
+
+
     def list() {
        HashMap bigTable = appEngineService.list()
         //respond bigTable, model:[bigTableCount:bigTable.size()]
@@ -21,6 +23,13 @@ class BigTableController {
     }
 
     def edit() {
+        String id = params.id
+        Result result = appEngineService.getItem(id)
+        respond result
+
+    }
+
+    def show() {
         String id = params.id
         Result result = appEngineService.getItem(id)
         respond result

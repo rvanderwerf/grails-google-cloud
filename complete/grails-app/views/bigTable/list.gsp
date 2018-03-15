@@ -20,7 +20,7 @@
     </g:if>
     <table>
     <g:each in="${bigTable}" status="i" var="value">
-        <tr><td><g:link action="edit" id="${value.key}">${value.key}</g:link></td><td>${value.value}</td></tr>
+        <tr><td><g:link action="show" id="${value.key}">${value.key}</g:link></td><td>${value.value}</td></tr>
     </g:each>
     </table>
     <div class="pagination">
