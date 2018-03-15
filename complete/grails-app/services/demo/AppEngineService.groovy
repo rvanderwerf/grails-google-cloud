@@ -86,8 +86,7 @@ class AppEngineService {
     public void initConnnection() {
         // This will be invoked as part of a warmup request, or the first user
         // request if no warmup request was invoked.
-
-
+        
         if (PROJECT_ID == null) {
             PROJECT_ID = grailsApplication.config.get("googlecloud.projectid")
         }
@@ -95,29 +94,6 @@ class AppEngineService {
             INSTANCE_ID = grailsApplication.config.get("googlecloud.bigTableInstance")
         }
 
-
-       /* if (PROJECT_ID != null && PROJECT_ID.startsWith("@")) {
-            PROJECT_ID = null
-        }
-        if (INSTANCE_ID != null && INSTANCE_ID.startsWith("@")) {
-            INSTANCE_ID = null
-        }
-
-        if (PROJECT_ID == null) {
-            PROJECT_ID = grailsApplication.config.get("googlecloud.projectid")
-        }
-        if (INSTANCE_ID == null) {
-            INSTANCE_ID = grailsApplication.config.get("googlecloud.bigTableInstance")
-        }*/
-
-        /*try {
-            connect()
-        } catch (IOException e) {
-            log.error("BigtableHelper - connect ", e)
-        }
-        if (connection == null) {
-            sc.log("BigtableHelper-No Connection")
-        }*/
     }
 
 

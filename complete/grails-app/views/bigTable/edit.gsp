@@ -29,7 +29,8 @@
             <g:form resource="${this.result}" method="PUT">
 
                 <fieldset class="form">
-                    <f:all bean="result" except="featuredImageUrl"/>
+                    <h1>${new String(result.getRow())}:${new String(result.cells.first().valueArray)}</h1>
+
                 </fieldset>
                 <fieldset class="buttons">
                     <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
