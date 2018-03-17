@@ -83,15 +83,15 @@ dependencies {
     //tag::cloudstorage[]
     compile 'com.google.cloud:google-cloud-storage:1.16.0'
     //end::cloudstorage[]
-    compile ('com.google.cloud.bigtable:bigtable-hbase-1.2:1.0.0-pre2')
-    compile ('io.netty:netty-tcnative-boringssl-static:1.1.33.Fork26')
-    //compile ('io.netty:netty-tcnative-boringssl-static:2.0.7.Final')
+
+    //compile ('io.netty:netty-tcnative-boringssl-static:1.1.33.Fork26')
+    compile ('io.netty:netty-tcnative-boringssl-static:2.0.7.Final')
 
     //compile 'com.google.cloud:google-cloud-pubsub:0.37.0-beta'
     // https://mvnrepository.com/artifact/com.google.cloud/google-cloud-pubsub
     //compile group: 'com.google.cloud', name: 'google-cloud-pubsub', version: '0.39.0-beta'
 // https://mvnrepository.com/artifact/com.google.cloud/google-cloud-pubsub
-    //compile group: 'com.google.cloud', name: 'google-cloud-pubsub', version: '0.34.0-beta'
+    compile group: 'com.google.cloud', name: 'google-cloud-pubsub', version: '0.34.0-beta'
 
 
     compile 'com.google.cloud:google-cloud-core:1.16.0'
